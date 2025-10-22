@@ -1,0 +1,27 @@
+# ----------------------------
+# Java + Maven + VS Code
+# ----------------------------
+
+# VS Code local settings
+.vscode/
+
+# Java class and build outputs
+target/
+bin/
+out/
+
+# Eclipse / VS Code Java project metadata
+.classpath
+.project
+.settings/
+
+# Maven wrapper (keep jar)
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+!/.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# OS / IDE specific files
+.DS_Store
+Thumbs.db
