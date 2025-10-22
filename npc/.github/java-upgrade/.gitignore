@@ -52,5 +52,5 @@ logs/
 # =========================
 # Uncomment if you don’t want to commit local config files
 # settings.json
-application.properties
 # application.yml
+application.properties
