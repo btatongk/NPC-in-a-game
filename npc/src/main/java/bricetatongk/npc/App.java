@@ -41,7 +41,7 @@ public class App
         // retrieve the setting from application.properties
         try (InputStream input = App.class.getClassLoader().getResourceAsStream("application.properties")) {
             if (input == null) {
-                System.out.println("Sorry, unable to find application.properties");
+                System.out.println("Uable to find application.properties");
                 return null;
             }
 
