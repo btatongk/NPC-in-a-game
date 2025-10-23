@@ -1,12 +1,8 @@
 package bricetatongk.npc;
 
-import java.io.InputStream;
-import java.io.IOException;
-import java.util.Properties;
 import java.util.Scanner;
-
-import dev.langchain4j.chain.ConversationalChain;
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.chain.ConversationalChain;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModelName;
 
@@ -15,24 +11,16 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( ">>>>>> Npc started <<<<<" );
-
-        String OPENAI_API_KEY = "";
-
         // retrieve the setting from application.properties
-        try (InputStream input = App.class.getClassLoader().getResourceAsStream("application.properties")) {
-            if (input == null) {
-                System.out.println("Uable to find application.properties");
-            }
+        // environment variables can also be used
+        String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
-            Properties prop = new Properties();
-            prop.load(input);
-
-            OPENAI_API_KEY = prop.getProperty("OPENAI_API_KEY");
-
-        } catch (IOException ex){
-            ex.printStackTrace();
+        if (OPENAI_API_KEY == null || OPENAI_API_KEY.isEmpty()) {
+            System.err.println("Error: OPENAI_API_KEY is not valid: " + OPENAI_API_KEY);
+            return;
         }
+
+        System.out.println( ">>>>>> Npc started <<<<<" );
 
         ChatModel model = OpenAiChatModel
                 .builder()
